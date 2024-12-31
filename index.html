@@ -186,8 +186,10 @@
         if (now >= targetDate) {
             showNewYearScreen();
         }
+        } else {
             const countdownInterval = setInterval(updateCountdown, 1000);
             updateCountdown(); // 初回実行
+        }
     </script>
 </body>
 </html>
