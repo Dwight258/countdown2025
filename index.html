@@ -165,7 +165,9 @@
             videoElement.play();
 
             // 白画面をフェードアウト
-            fadeOut.style.opacity = 1;
+            fadeOut.style.opacity = 0;
+
+            videoElement.style.opacity = 1;
 
             // メッセージ表示
             setTimeout(() => {
