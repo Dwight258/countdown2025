@@ -90,7 +90,7 @@
         videoElement.volume = 0.8; // 音量を20%に設定
 
         function updateCountdown() {
-            const targetDate = new Date('2024-12-31T18:47:00');
+            const targetDate = new Date('2024-12-31T18:52:00');
             const now = new Date();
             const timeDifference = targetDate - now;
 
@@ -149,6 +149,10 @@
                 }, 2000); // 白い画面を保持する時間
             }, { once: true });
         }
+
+        const now = new Date();
+        const targetDate = new Date('2024-12-31T18:52:00');
+
         
         if (now >= targetDate) {
             triggerEndSequence();
