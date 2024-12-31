@@ -150,6 +150,9 @@
             }, { once: true });
         }
 
+const countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown(); // 初回実行
+        
         function showNewYearScreen() {
             const countdownContainer = document.getElementById('countdown-container');
             const fadeOut = document.getElementById('fade-out');
@@ -185,10 +188,6 @@
 
         if (now >= targetDate) {
             showNewYearScreen();
-        } else {
-            const countdownInterval = setInterval(updateCountdown, 1000);
-            updateCountdown(); // 初回実行
-        }
     </script>
 </body>
 </html>
