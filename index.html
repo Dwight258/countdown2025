@@ -149,6 +149,36 @@
                 }, 2000); // 白い画面を保持する時間
             }, { once: true });
         }
+
+        function showNewYearScreen() {
+            const countdownContainer = document.getElementById('countdown-container');
+            const fadeOut = document.getElementById('fade-out');
+            const message1 = document.getElementById('message-1');
+            const message2 = document.getElementById('message-2');
+
+            // タイトルとカウントダウンを非表示
+            countdownContainer.style.display = 'none';
+
+            // 別動画のセット
+            videoElement.src = '202982-919365848_small.mp4';
+            videoElement.load();
+            videoElement.play();
+
+            // 白画面をフェードアウト
+            fadeOut.style.opacity = 0;
+
+            // メッセージ表示
+            setTimeout(() => {
+                message1.style.opacity = 1;
+                setTimeout(() => {
+                    message1.style.transform = 'translate(-50%, -60%)'; // 少し上に移動
+                    message2.style.opacity = 1;
+                    setTimeout(() => {
+                        audioElement.play(); // 音声再生開始
+                    }, 2000); // メッセージが表示されてから2秒後
+                }, 3000);
+            }, 2000);
+        }
         const now = new Date();
         const targetDate = new Date('2024-12-31T17:51:00');
 
