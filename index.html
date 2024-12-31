@@ -160,26 +160,28 @@
             countdownContainer.style.display = 'none';
 
             // 別動画のセット
-            videoElement.src = '202982-919365848_small.mp4';
-            videoElement.load();
-            videoElement.play();
+                    videoElement.addEventListener('transitionend', () => {
+                        videoElement.src = '202982-919365848_small.mp4';
+                        videoElement.load();
+                        videoElement.play();
+                        setTimeout(() => {
+                            fadeOut.style.opacity = 0; // 白画面をフェードイン
 
-            // 白画面をフェードアウト
-            fadeOut.style.opacity = 0;
+                            videoElement.style.opacity = 1; // 新しい動画をフェードイン
 
-            videoElement.style.opacity = 1;
-
-            // メッセージ表示
-            setTimeout(() => {
-                message1.style.opacity = 1;
-                setTimeout(() => {
-                    message1.style.transform = 'translate(-50%, -150%)'; // 少し上に移動
-                    message2.style.opacity = 1;
-                    setTimeout(() => {
-                        audioElement.play(); // 音声再生開始
-                    }, 2000); // メッセージが表示されてから2秒後
-                }, 3000);
-            }, 2000);
+                            // メッセージ表示
+                            setTimeout(() => {
+                                message1.style.opacity = 1;
+                                setTimeout(() => {
+                                    message1.style.transform = 'translate(-50%, -150%)'; // 少し上に移動
+                                    message2.style.opacity = 1;
+                                    setTimeout(() => {
+                                        audioElement.play(); // 音声再生開始
+                                    }, 2000);
+                                }, 5000); // 次のメッセージを3秒後に表示
+                            }, 2000); // フェードアウトが完了した後
+                        }, 2000); // 白い画面で2秒間待機
+                    }, { once: true });
         }
 
         const now = new Date();
